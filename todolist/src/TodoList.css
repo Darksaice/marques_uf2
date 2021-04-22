@@ -1,4 +1,25 @@
+body {
+background: rgb(0,205,200);
+background: linear-gradient(90deg, rgba(0,205,200,1) 21%, rgba(7,153,255,1) 52%, rgba(0,202,255,1) 79%);
+
+}
+
 h1 {
-background-color:#6666dd;
+background:#6666dd;
+
 text-align:center;
+}
+
+div {
+text-align:center;
+}
+
+ul {
+display:flex;
+flex-direction:column;
+flex-wrap:wrap;
+justify-content:center;
+align-items:stretch;
+padding:0;
+margin-top:0;
 }

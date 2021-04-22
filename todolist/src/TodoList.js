@@ -26,10 +26,10 @@ class TodoList extends Component {
 		
 		let text_v = document.getElementById("text-task").value;
 		document.getElementById("text-task").value = "";
-		document.getElementById("text-task").focus;
+		document.getElementById("text-task").focus();
 		this.last_id++;
 
-		this.state.items.push({id:this.last_id, item:text_v});
+		this.state.items.push({id: this.last_id, item:text_v});
 		console.log(this.state.items);
 
 		this.setState({
@@ -69,8 +69,8 @@ class TodoList extends Component {
 		<div>	
 			<p>Num Items: NUM</p>
 			<form onSubmit={this.addItem}>
-				<p><input type="text" id="text-task" /></p>
-				<p><button type="submit">Añadir</button></p>
+				<p><input type="text" id="text-task" />
+				<button type="submit">Añadir</button></p>
 			</form>
 			<ul>
 				{lista}
