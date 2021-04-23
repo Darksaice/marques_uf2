@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 
 import ListItem from './ListItem';
 
-import './TodoList.css';
+import { Button } from '@material-ui/core';
+import { TextField } from '@material-ui/core';
+
+//import './TodoList.css';
 
 class TodoList extends Component {
 	
@@ -69,8 +72,8 @@ class TodoList extends Component {
 		<div>	
 			<p>Num Items: NUM</p>
 			<form onSubmit={this.addItem}>
-				<p><input type="text" id="text-task" />
-				<button type="submit">Añadir</button></p>
+				<p><TextField id="text-task" autoComplete="off" helperText="Introduce una tarea"/>
+			<Button color="primary" variant="contained" type="submit">Añadir</Button></p>
 			</form>
 			<ul>
 				{lista}
