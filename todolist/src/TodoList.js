@@ -38,6 +38,13 @@ class TodoList extends Component {
 		this.setState({
 			items: this.state.items
 		});
+		
+		let item_data = JSON.stringify({
+				id: this.last.id,
+				item: text_v
+		});
+
+		fetch("//192.168.1.120/submit")
 
 	}
 
