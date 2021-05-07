@@ -24,6 +24,24 @@ class TodoList extends Component {
 			this.removeItem = this.removeItem.bind(this);
 		}
 
+		fetch("//192.168.1.120:8081/get_items")
+			.then(res => res.json())
+			.then(data => {
+					data.forEach(item_l => {
+						this.state.items.push({
+							id: item_l.id,
+							item:item_l.item
+						});
+					});
+					this.setState({
+						items: this.state.items
+					});
+
+					this.last_id = data[data.length-1].id;
+
+			});
+
+
 	addItem (e) {
 		e.preventDefault();
 		
@@ -44,7 +62,13 @@ class TodoList extends Component {
 				item: text_v
 		});
 
-		fetch("//192.168.1.120/submit")
+		fetch("//192.168.1.120:8081/submit", {
+			method: "POST",
+			headers: {
+				'Content-Type':'text/json'
+			},
+			body: item_data
+		});
 
 	}
 
