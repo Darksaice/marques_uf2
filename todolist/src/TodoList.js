@@ -5,7 +5,7 @@ import ListItem from './ListItem';
 import { Button } from '@material-ui/core';
 import { TextField } from '@material-ui/core';
 
-//import './TodoList.css';
+import './TodoList.css';
 
 class TodoList extends Component {
 	
@@ -22,25 +22,25 @@ class TodoList extends Component {
 			this.last_id = 0;
 			this.addItem = this.addItem.bind(this);
 			this.removeItem = this.removeItem.bind(this);
-		}
+		
 
-		fetch("//192.168.1.120:8081/get_items")
-			.then(res => res.json())
-			.then(data => {
-					data.forEach(item_l => {
-						this.state.items.push({
-							id: item_l.id,
-							item:item_l.item
+			fetch("//192.168.1.120:8081/get_items")
+				.then(res => res.json())
+				.then(data => {
+						data.forEach(item_l => {
+							this.state.items.push({
+								id: item_l.id,
+								item:item_l.item
+							});
 						});
-					});
-					this.setState({
-						items: this.state.items
-					});
+						this.setState({
+							items: this.state.items
+						});
 
-					this.last_id = data[data.length-1].id;
+						this.last_id = data[data.length-1].id;
 
-			});
-
+				});
+		}
 
 	addItem (e) {
 		e.preventDefault();
@@ -101,11 +101,12 @@ class TodoList extends Component {
 		
 		return (
 		<div>	
-			<p>Num Items: NUM</p>
+			
 			<form onSubmit={this.addItem}>
 				<p><TextField id="text-task" autoComplete="off" helperText="Introduce una tarea"/>
 			<Button color="primary" variant="contained" type="submit">Añadir</Button></p>
 			</form>
+			<p>Num Items: </p>
 			<ul>
 				{lista}
 			</ul>

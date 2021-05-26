@@ -54,6 +54,21 @@ http.createServer( (req, res) => {
 			res.write(JSON.stringify(data));
 		});
 	}
+	
+	if (req.ulr == "/remove"){
+		let body = [];
+			req.on('data', chunk =>{
+				body.push(chunk);
+				}).on('end', () => {
+					let data = Buffer.concat(body).toString();
+					let item_data = JSON.parse(data);
+					todolist_db.collection("items").remove();
+		}
+
+	}
+
+
+
 	res.end();
 
 }).listen(8081);
