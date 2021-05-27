@@ -55,7 +55,7 @@ http.createServer( (req, res) => {
 		});
 	}
 	
-	if (req.ulr == "/remove"){
+	if (req.url == "/remove"){
 		let body = [];
 			req.on('data', chunk =>{
 				body.push(chunk);
